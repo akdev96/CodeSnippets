@@ -1,0 +1,88 @@
+<html>
+
+<div id="popUpWindow" class="modal fade" style="font-family:Roboto, sans-serif;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" style="font-family:'Noto Sans', sans-serif;">Your Billing Information</h3><button class=" close" type="button" data-dismiss="modal">×</button></div>
+            <div class="modal-body">
+                <div class="row" style="font-family:Allerta, sans-serif;">
+                    <div class="col-lg-10 col-xl-12 offset-lg-1 offset-xl-0" id="cal-container" style="height:290px;border-radius:20px;/*background-color:rgba(0,240,255,0.2);*//*border-width:thick;*//*border-color:#00ecf8;*//*border-style:outset;*/font-family:Allerta, sans-serif;">
+                        <div class="slidercontainer">
+                            <p class="text-center" style="font-family:'Noto Sans', sans-serif;margin-top:15px;font-size:20px;padding-top:43px;">Monthly Power Usage :<span id="demo">180</span><span style="font-family:'Noto Sans', sans-serif;"> kWh</span></p><input type="range" id="myRange" class="slider" name="usage" value="180" min="180" max="1500" step="1" />
+                            <p class="text-center"
+                                style="font-family:'Noto Sans', sans-serif;margin-top:15px;font-size:20px;">Your Monthly Bill Amount : Rs.<span></span><span id="calculated">4063.50</span></p>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer"><button class="btn btn-primary" data-toggle="modal" data-target="#popUpWindow2" style="font-family:'Noto Sans', sans-serif;" type="button">Request</button></div>
+        </div>
+    </div>
+</div>
+
+<div id="popUpWindow2" class="modal fade" style="font-family:Roboto, sans-serif;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" style="font-family:Roboto, sans-serif;">Your Contact Information</h4><button class=" close" type="button" data-dismiss="modal">×</button></div>
+            <div class="modal-body">
+                <div class="row" style="font-family:Allerta, sans-serif;">
+                    <div class="col" style="width:100%;">
+                        <div>
+                            <div class="container-fluid">
+                                <form id="contactForm" style="font-family:Roboto, sans-serif;" action="sendmail.php" method="post"><input type="hidden" class="form-control" name="Introduction" value="A Client Asking for a  Quote" /><input type="hidden" class="form-control" name="subject" value="New Client" /><input type="hidden" class="form-control"
+                                        name="to" value="info@solarpower.lk" />
+                                    <div class="col-12 col-md-6 col-xl-12" id="message">
+                                        <div class="form-group"><label style="font-family:Roboto, sans-serif;" for="from-name">Name</label><span class="required-input" style="font-family:Roboto, sans-serif;">*</span>
+                                            <div class="input-group" style="font-family:Roboto, sans-serif;">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-user-o"></i></span></div><input type="text" class="form-control" id="from-name" title="Invalid Name Format" name="name" required placeholder="Full Name" pattern="[a-zA-Z0-9\s]+"
+                                                /></div>
+                                        </div>
+                                        <div class="form-group"><label style="font-family:Roboto, sans-serif;" for="from-email">Email</label><span class="required-input" style="font-family:Roboto, sans-serif;">*</span>
+                                            <div class="input-group" style="font-family:Roboto, sans-serif;">
+                                                <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-envelope-o"></i></span></div><input type="text" class="form-control" id="from-email" title="Invalid Email Address" name="email" required placeholder="Email Address"
+                                                    pattern="[a-zA-Z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" /></div>
+                                        </div>
+                                        <div class="form-row">
+                                            <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                <div class="form-group"><label style="font-family:Roboto, sans-serif;" for="from-phone">Phone</label><span class="required-input" style="font-family:Roboto, sans-serif;">*</span>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-phone"></i></span></div><input type="text" class="form-control" id="from-phone" style="font-family:Roboto, sans-serif;" title="Invalid Phone Number"
+                                                            name="phone" required placeholder="Primary Phone" pattern="[0-9\+\s\(\)]\d{4,15}" /></div>
+                                                </div>
+                                            </div>
+                                            <div class="col-12 col-sm-6 col-md-12 col-lg-6">
+                                                <div class="form-group"><label style="font-family:Roboto, sans-serif;" for="from-calltime">Best Time to Call</label>
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend"><span class="input-group-text"><i class="fa fa-clock-o"></i></span></div><select class="form-control" id="from-calltime" style="font-family:Roboto, sans-serif;" name="call_time"><option value="Morning" selected style="font-family:Roboto;">Morning</option><option value="Afternoon" style="font-family:Roboto;">Afternoon</option><option value="Evening" style="font-family:Roboto;">Evening</option></select></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form-group"><label style="font-family:Roboto, sans-serif;" for="from-comments">Message</label><textarea class="form-control" id="from-comments" style="font-family:Roboto, sans-serif;" name="message" placeholder="Enter Message"
+                                                rows="5"></textarea></div>
+                                        <div class="form-group">
+                                            <div class="form-row">
+                                                <div class="col"><button class="btn btn-primary btn-block" style="font-family:Roboto, sans-serif;" type="reset"><i class="fa fa-undo"></i> Reset</button></div>
+                                                <div class="col"><button class="btn btn-primary btn-block" style="font-family:Roboto, sans-serif;" type="submit">Submit <i class="fa fa-chevron-circle-right"></i></button></div>
+                                            </div>
+                                        </div>
+                                        <hr class="d-flex d-md-none" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer"><button class="btn btn-primary d-none" data-toggle="modal" data-target="#popUpWindow2" style="font-family:'Noto Sans', sans-serif;" type="button">Submit</button></div>
+            <div>Custom Code</div>
+        </div>
+    </div>
+</div>
+
+
+
+</html>
